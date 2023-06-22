@@ -14,7 +14,7 @@ steps:
 
   - script: |
       pip install azure-cli
-      az login --service-principal --username aede2ce0-a345-4ca8-b720-956be9e10cbc --password ~NZ8Q~zmUdJ6c23lxXKjBHkfVP09vOKuQzWa3aSv --tenant 9425911d-50d3-43b0-8471-546034a85aef
+      az login --service-principal --username thatshayathu1@gmail.com --password Homesweethome68+ --tenant 9425911d-50d3-43b0-8471-546034a85aef
     displayName: 'Azure Login'
 
   - script: |
