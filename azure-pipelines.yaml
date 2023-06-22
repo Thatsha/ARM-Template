@@ -1,0 +1,22 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.x'
+      addToPath: true
+
+  - script: |
+      pip install azure-cli
+      az login --service-principal --username aede2ce0-a345-4ca8-b720-956be9e10cbc --password ~NZ8Q~zmUdJ6c23lxXKjBHkfVP09vOKuQzWa3aSv --tenant 9425911d-50d3-43b0-8471-546034a85aef
+    displayName: 'Azure Login'
+
+  - script: |
+      az deployment group create --name rg-thatsha-60893 --resource-group rg-thatsha-60893 --template-file template.json --parameters resourceGroupName=rg-thatsha-60893 storageAccountName=thatsha60893 serviceBusNamespaceName=sbthatsha60893 location=eastus
+    displayName: 'Deploy Azure Resources'
